@@ -26,6 +26,15 @@ tech:
       type: LORE
       lore: Leaf Burner II
       material: SHEARS
+  veinminer:
+    type: VEINMINER
+    recursion_limit: 10
+    cannot_bypass_msg: "&cSome of the nearby ores are reinforced and can't be broken"
+    durability_chance: 1.0
+    tag:
+      type: LORE
+      lore: Vein Miner
+      material: NETHERITE_PICKAXE
 anvil:
   repairMaterials:
     emerald:
