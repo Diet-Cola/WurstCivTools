@@ -7,6 +7,7 @@
 *.jar
 *.war
 *.ear
+*.iml
 
 .settings/
 .classpath
