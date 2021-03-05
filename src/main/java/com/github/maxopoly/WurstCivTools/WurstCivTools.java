@@ -33,7 +33,7 @@ public class WurstCivTools extends ACivMod {
 		ConfigParser cp = new ConfigParser();
 		manager = cp.parse();
 		anvilHandler = cp.getAnvilHandler();
-		nmsManager = new com.github.maxopoly.WurstCivTools.nms.v1_10_R1.NmsManager();
+		nmsManager = new com.github.maxopoly.WurstCivTools.nms.v1_16_R3.NmsManager();
 		registerListeners();
 	}
 	
