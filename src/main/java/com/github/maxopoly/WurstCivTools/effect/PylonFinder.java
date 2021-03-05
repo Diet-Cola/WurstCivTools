@@ -69,7 +69,7 @@ public class PylonFinder extends WurstEffect {
 			}
 		} else {
 			// show factories that are currently upgrading to be a pylon
-			for (Factory f : FactoryMod.getManager().getAllFactories()) {
+			for (Factory f : FactoryMod.getInstance().getManager().getAllFactories()) {
 				if (!f.isActive() && !pylons.contains(f)) {
 					continue;
 				}

@@ -44,7 +44,7 @@ anvil:
       material: DIAMOND_SWORD
       value: 12
     diamondShovel:
-      material: DIAMOND_SPADE
+      material: DIAMOND_SHOVEL
       value: 6
     diamondAxe:
       material: DIAMOND_AXE
@@ -71,7 +71,7 @@ anvil:
       material: IRON_SWORD
       value: 4
     ironShovel:
-      material: IRON_SPADE
+      material: IRON_SHOVEL
       value: 2
     ironAxe:
       material: IRON_AXE
@@ -110,7 +110,7 @@ anvil:
       material: STONE_SWORD
       value: 1
     stoneShovel:
-      material: STONE_SPADE
+      material: STONE_SHOVEL
       value: 1
     stoneAxe:
       material: STONE_AXE
@@ -119,31 +119,31 @@ anvil:
       material: STONE_HOE
       value: 1
     goldPick:
-      material: GOLD_PICKAXE
+      material: GOLDEN_PICKAXE
       value: 1
     goldSword:
-      material: GOLD_SWORD
+      material: GOLDEN_SWORD
       value: 1
     goldShovel:
-      material: GOLD_SPADE
+      material: GOLDEN_SHOVEL
       value: 1
     goldAxe:
-      material: GOLD_AXE
+      material: GOLDEN_AXE
       value: 1
     goldHoe:
-      material: GOLD_HOE
+      material: GOLDEN_HOE
       value: 1
     goldHelmet:
-      material: GOLD_HELMET
+      material: GOLDEN_HELMET
       value: 1
     goldChest:
-      material: GOLD_CHESTPLATE
+      material: GOLDEN_CHESTPLATE
       value: 1
     goldLeggings:
-      material: GOLD_LEGGINGS
+      material: GOLDEN_LEGGINGS
       value: 1
     goldBoots:
-      material: GOLD_BOOTS
+      material: GOLDEN_BOOTS
       value: 1
     chainmailHelmet:
       material: CHAINMAIL_HELMET

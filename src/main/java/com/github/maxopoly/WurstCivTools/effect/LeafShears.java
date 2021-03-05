@@ -5,22 +5,20 @@
 
 package com.github.maxopoly.WurstCivTools.effect;
 
+import com.github.maxopoly.WurstCivTools.WurstCivTools;
 import java.util.Random;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
-
 import vg.civcraft.mc.citadel.Citadel;
-
-import com.github.maxopoly.WurstCivTools.WurstCivTools;
+import vg.civcraft.mc.civmodcore.particles.ParticleEffect;
 
 public class LeafShears extends WurstEffect {
 	private int clearCubeSize;
@@ -115,14 +113,15 @@ public class LeafShears extends WurstEffect {
 						continue;
 					}
 					
-					if(Citadel.getReinforcementManager().getReinforcement(block.getLocation()) != null) {
+					if(Citadel.getInstance().getReinforcementManager().getReinforcement(block.getLocation()) != null) {
 						cannotBypass = true;
 						continue;
 					}
 					
 					block.setType(Material.AIR);
-					
-					player.spigot().playEffect(block.getLocation(), Effect.SMOKE, 0, 0, 0.0f, 0.0f, 0.0f, 2.0f, 3, 32);
+
+					ParticleEffect effect = new ParticleEffect(Particle.SMOKE_NORMAL, 0.0f, 0.0f, 0.0f, 3, 32);
+					effect.playEffect(block.getLocation());
 				}
 			}
 		}
@@ -133,8 +132,9 @@ public class LeafShears extends WurstEffect {
 	}
 	
 	private static boolean isLeaf(Block block) {
-		Material blockMaterial = block.getType(); 
+		Material blockMaterial = block.getType();
 		
-		return blockMaterial.equals(Material.LEAVES) || blockMaterial.equals(Material.LEAVES_2);
+		return blockMaterial.equals(Material.OAK_LEAVES) || blockMaterial.equals(Material.BIRCH_LEAVES) || blockMaterial.equals(Material.SPRUCE_LEAVES)
+				|| blockMaterial.equals(Material.JUNGLE_LEAVES) || blockMaterial.equals(Material.ACACIA_LEAVES) || blockMaterial.equals(Material.DARK_OAK_LEAVES);
 	}
 }

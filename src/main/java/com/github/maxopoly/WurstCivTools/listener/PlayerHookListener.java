@@ -174,7 +174,7 @@ public class PlayerHookListener implements Listener{
 			}
 		}
 		setspeed(player, count);
-		player.getWorld().playSound(player.getLocation(), Sound.BLOCK_WOOD_BUTTON_CLICK_ON, 1F, .3F);
+		player.getWorld().playSound(player.getLocation(), Sound.BLOCK_WOODEN_BUTTON_CLICK_ON, 1F, .3F);
 		player.getWorld().spawnParticle(Particle.VILLAGER_ANGRY, player.getLocation().add(0, 1, 0), 1);
 		player.getWorld().spawnParticle(Particle.SPELL_WITCH, player.getLocation().add(0, 1, 0), 20);
 	}

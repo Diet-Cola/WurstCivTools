@@ -71,17 +71,17 @@ public class PlayerHook extends WurstEffect {
 			} else if (inv.contains(Material.STONE_SWORD)){
 				p.sendMessage("You cannot use this item with a Sword in your inventory.");
 				return false;
-			} else if (inv.contains(Material.WOOD_SWORD)){
+			} else if (inv.contains(Material.WOODEN_SWORD)){
 				p.sendMessage("You cannot use this item with a Sword in your inventory.");
 				return false;
-			} else if (inv.contains(Material.GOLD_SWORD)){
+			} else if (inv.contains(Material.GOLDEN_SWORD)){
 				p.sendMessage("You cannot use this item with a Sword in your inventory.");
 				return false;
 			}
 		} 
 		if (axes){
 			Inventory inv = p.getInventory();
-			if (inv.contains(Material.GOLD_AXE)){
+			if (inv.contains(Material.GOLDEN_AXE)){
 				p.sendMessage("You cannot use this item with an Axe in your inventory.");
 				return false;
 			} else if (inv.contains(Material.DIAMOND_AXE)){
@@ -93,7 +93,7 @@ public class PlayerHook extends WurstEffect {
 			} else if (inv.contains(Material.STONE_AXE)){
 				p.sendMessage("You cannot use this item with an Axe in your inventory.");
 				return false;
-			} else if (inv.contains(Material.WOOD_AXE)){
+			} else if (inv.contains(Material.WOODEN_AXE)){
 				p.sendMessage("You cannot use this item with an Axe in your inventory.");
 				return false;
 			}

@@ -3,6 +3,8 @@ package com.github.maxopoly.WurstCivTools;
 import static vg.civcraft.mc.civmodcore.util.ConfigParsing.parseItemMapDirectly;
 import static vg.civcraft.mc.civmodcore.util.ConfigParsing.parseTime;
 
+
+import com.github.maxopoly.WurstCivTools.effect.VeinMiner;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -98,6 +100,16 @@ public class ConfigParser {
 						", axes:" + prevent_axes + ", bows:" + prevent_bows + 
 						", stop_count:" + stop_count + ", speed_change:" +speed_change);
 				break;
+			case "VEINMINER":
+				int recursionLimit = current.getInt("recursion_limit", 10);
+				String cannotBypassMsg = current.getString("cannot_bypass_msg", "");
+				double durabilityChance = current.getDouble("durability_chance", 0);
+				effect = new VeinMiner(recursionLimit, cannotBypassMsg, durabilityChance);
+				plugin.info("Parsed Veinminer tool, recursion_limit:" + recursionLimit
+						+ ", cannotBypassmessage: \"" + cannotBypassMsg + "\""
+						+ ", durabilityLossChance: " + durabilityChance);
+				break;
+
 			default:
 				plugin.severe("Could not identify effect type " + type + " at "
 						+ config.getCurrentPath());
