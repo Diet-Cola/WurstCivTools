@@ -4,6 +4,7 @@ import com.github.maxopoly.WurstCivTools.WurstCivTools;
 import java.util.List;
 import java.util.Random;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -20,6 +21,7 @@ public class VeinMiner extends WurstEffect{
     private double durabilityLossChance;
     private Random rnd;
     private int counter;
+    private Player player;
 
     public VeinMiner(int limit, String cannotBypassMessage, double durabilityLossChance) {
         super();
@@ -41,6 +43,7 @@ public class VeinMiner extends WurstEffect{
         if (p == null) {
             return;
         }
+        this.player = p;
 
         if (!isOre(e.getBlock())) {
             return;
@@ -112,6 +115,7 @@ public class VeinMiner extends WurstEffect{
             }
             Reinforcement rein = Citadel.getInstance().getReinforcementManager().getReinforcement(b);
             if (rein != null) {
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', cannotBypassMessage));
                 return;
             }
             if (counter >= limit) {
