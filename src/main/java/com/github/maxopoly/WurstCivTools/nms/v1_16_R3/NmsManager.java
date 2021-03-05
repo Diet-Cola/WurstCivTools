@@ -1,4 +1,4 @@
-package com.github.maxopoly.WurstCivTools.nms.v1_10_R1;
+package com.github.maxopoly.WurstCivTools.nms.v1_16_R3;
 
 import com.github.maxopoly.WurstCivTools.misc.ReflectionHelper;
 import com.github.maxopoly.WurstCivTools.nms.INmsManager;
