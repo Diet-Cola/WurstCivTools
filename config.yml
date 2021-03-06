@@ -31,6 +31,11 @@ tech:
     recursion_limit: 10
     cannot_bypass_msg: "&cSome of the nearby ores are reinforced and can't be broken"
     durability_chance: 1.0
+    aoe_blacklist:
+      - BEDROCK
+      - END_PORTAL_FRAME
+      - END_PORTAL
+      - NETHER_PORTAL
     tag:
       type: LORE
       lore: Vein Miner

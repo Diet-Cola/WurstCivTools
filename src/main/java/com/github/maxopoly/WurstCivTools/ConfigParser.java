@@ -6,6 +6,7 @@ import static vg.civcraft.mc.civmodcore.util.ConfigParsing.parseTime;
 
 import com.github.maxopoly.WurstCivTools.effect.AOEMiner;
 import com.github.maxopoly.WurstCivTools.effect.VeinMiner;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -114,7 +115,16 @@ public class ConfigParser {
 				int radius = current.getInt("radius", 1);
 				String cannotBypassMsgAoe = current.getString("cannot_bypass_msg_aoe", "");
 				double durabilityChanceAoe = current.getDouble("durability_chance_aoe", 0);
-				effect = new AOEMiner(radius, cannotBypassMsgAoe, durabilityChanceAoe);
+				List<String> blacklistedMaterials = current.getStringList("aoe_blacklist");
+				List<Material> blacklist = new ArrayList<>();
+				for (String s : blacklistedMaterials) {
+					Material mat = Material.getMaterial(s);
+					if (mat == null) {
+						throw new IllegalArgumentException();
+					}
+					blacklist.add(mat);
+				}
+				effect = new AOEMiner(radius, cannotBypassMsgAoe, durabilityChanceAoe, blacklist);
 				plugin.info("Parsed AOEMiner tool, radius:" + radius
 						+ ", cannotBypassmessageAOE: \"" + cannotBypassMsgAoe + "\""
 						+ ", durabilityLossChanceAOE: " + durabilityChanceAoe);

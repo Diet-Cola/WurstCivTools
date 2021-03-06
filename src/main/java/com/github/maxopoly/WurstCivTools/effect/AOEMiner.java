@@ -22,13 +22,15 @@ public class AOEMiner extends WurstEffect {
     private double durabilityLossChance;
     private Random rnd;
     private Player player;
+    private List<Material> blacklist;
 
-    public AOEMiner(int radius, String cannotBypassMessage, double durabilityLossChance) {
+    public AOEMiner(int radius, String cannotBypassMessage, double durabilityLossChance, List<Material> blacklistedMaterials) {
         super();
         this.rnd = new Random();
         this.radius = radius;
         this.cannotBypassMessage = cannotBypassMessage;
         this.durabilityLossChance = durabilityLossChance;
+        this.blacklist = blacklistedMaterials;
     }
 
     @Override
@@ -117,7 +119,7 @@ public class AOEMiner extends WurstEffect {
                             return blocks;
                     }
 
-                    if (currentBlock.getType() == Material.BEDROCK) {
+                    if (blacklist.contains(currentBlock.getType())) {
                         continue;
                     }
 
