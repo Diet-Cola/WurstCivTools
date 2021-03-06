@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -20,6 +21,7 @@ public class AOEMiner extends WurstEffect {
     private String cannotBypassMessage;
     private double durabilityLossChance;
     private Random rnd;
+    private Player player;
 
     public AOEMiner(int radius, String cannotBypassMessage, double durabilityLossChance) {
         super();
@@ -38,6 +40,8 @@ public class AOEMiner extends WurstEffect {
         if (p == null) {
             return;
         }
+
+        this.player = p;
 
         Reinforcement rein = Citadel.getInstance().getReinforcementManager().getReinforcement(e.getBlock());
         if (rein != null) {
@@ -82,7 +86,7 @@ public class AOEMiner extends WurstEffect {
     private void mineAOE(Block center, BlockFace face) {
         List<Block> blocksToMine = getDirectionalAOE(face, center, radius);
         for (Block b : blocksToMine) {
-            if (b.getType().isAir()) {
+            if (b.getType().isAir() || !b.getType().isSolid()) {
                 continue;
             }
             b.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(b.getType()));
@@ -120,7 +124,7 @@ public class AOEMiner extends WurstEffect {
                     Reinforcement reinforcement =
                             Citadel.getInstance().getReinforcementManager().getReinforcement(currentBlock);
                     if (reinforcement != null) {
-                        //TODO: Send player msg saying some block were reinforced
+                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', cannotBypassMessage));
                         continue;
                     }
 
@@ -134,6 +138,7 @@ public class AOEMiner extends WurstEffect {
     private BlockFace getBlockFace(Player player) {
         float pitch = player.getEyeLocation().getPitch();
         float yaw = player.getEyeLocation().getYaw();
+        yaw = (yaw % 360 + 360) % 360;
         if (pitch < -45) {
             return BlockFace.UP;
         } else if (pitch > 45) {
