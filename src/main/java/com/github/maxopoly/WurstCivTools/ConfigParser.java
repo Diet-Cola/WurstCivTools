@@ -4,6 +4,7 @@ import static vg.civcraft.mc.civmodcore.util.ConfigParsing.parseItemMapDirectly;
 import static vg.civcraft.mc.civmodcore.util.ConfigParsing.parseTime;
 
 
+import com.github.maxopoly.WurstCivTools.effect.AOEMiner;
 import com.github.maxopoly.WurstCivTools.effect.VeinMiner;
 import java.util.HashMap;
 import java.util.List;
@@ -109,7 +110,15 @@ public class ConfigParser {
 						+ ", cannotBypassmessage: \"" + cannotBypassMsg + "\""
 						+ ", durabilityLossChance: " + durabilityChance);
 				break;
-
+			case "AOEMINER":
+				int radius = current.getInt("radius", 1);
+				String cannotBypassMsgAoe = current.getString("cannot_bypass_msg_aoe", "");
+				double durabilityChanceAoe = current.getDouble("durability_chance_aoe", 0);
+				effect = new AOEMiner(radius, cannotBypassMsgAoe, durabilityChanceAoe);
+				plugin.info("Parsed AOEMiner tool, radius:" + radius
+						+ ", cannotBypassmessageAOE: \"" + cannotBypassMsgAoe + "\""
+						+ ", durabilityLossChanceAOE: " + durabilityChanceAoe);
+				break;
 			default:
 				plugin.severe("Could not identify effect type " + type + " at "
 						+ config.getCurrentPath());

@@ -35,6 +35,15 @@ tech:
       type: LORE
       lore: Vein Miner
       material: NETHERITE_PICKAXE
+  aoeminer:
+    type: AOEMINER
+    radius: 1
+    cannot_bypass_msg_aoe: "&cSome of the nearby ores are reinforced and can't be broken"
+    durability_chance_aoe: 1.0
+    tag:
+      type: LORE
+      lore: Hammer
+      material: NETHERITE_PICKAXE
 anvil:
   repairMaterials:
     emerald:
