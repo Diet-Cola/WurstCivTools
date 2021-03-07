@@ -45,6 +45,12 @@ tech:
     radius: 1
     cannot_bypass_msg_aoe: "&cSome of the nearby ores are reinforced and can't be broken"
     durability_chance_aoe: 1.0
+    saturation_to_consume: 2.5
+    aoe_blacklist:
+      - BEDROCK
+      - END_PORTAL_FRAME
+      - NETHER_PORTAL
+      - END_PORTAL
     tag:
       type: LORE
       lore: Hammer
