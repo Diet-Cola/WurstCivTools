@@ -124,12 +124,12 @@ public class ConfigParser {
 					}
 					blacklist.add(mat);
 				}
-				float saturationConsumation = (float) current.getDouble("saturation_to_consume", 1.0f);
-				effect = new AOEMiner(radius, cannotBypassMsgAoe, durabilityChanceAoe, blacklist, saturationConsumation);
+				int foodConsumation = current.getInt("food_to_consume", 1);
+				effect = new AOEMiner(radius, cannotBypassMsgAoe, durabilityChanceAoe, blacklist, foodConsumation);
 				plugin.info("Parsed AOEMiner tool, radius:" + radius
 						+ ", cannotBypassmessageAOE: \"" + cannotBypassMsgAoe + "\""
 						+ ", durabilityLossChanceAOE: " + durabilityChanceAoe + "\""
-						+ ", saturationConsumation: " + saturationConsumation);
+						+ ", foodConsumation: " + foodConsumation);
 				break;
 			default:
 				plugin.severe("Could not identify effect type " + type + " at "

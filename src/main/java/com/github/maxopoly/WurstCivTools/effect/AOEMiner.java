@@ -23,16 +23,16 @@ public class AOEMiner extends WurstEffect {
     private Random rnd;
     private Player player;
     private List<Material> blacklist;
-    private float saturationConsumation;
+    private int foodConsumation;
 
-    public AOEMiner(int radius, String cannotBypassMessage, double durabilityLossChance, List<Material> blacklistedMaterials, float saturationConsume) {
+    public AOEMiner(int radius, String cannotBypassMessage, double durabilityLossChance, List<Material> blacklistedMaterials, int foodToConsume) {
         super();
         this.rnd = new Random();
         this.radius = radius;
         this.cannotBypassMessage = cannotBypassMessage;
         this.durabilityLossChance = durabilityLossChance;
         this.blacklist = blacklistedMaterials;
-        this.saturationConsumation = saturationConsume;
+        this.foodConsumation = foodToConsume;
     }
 
     @Override
@@ -93,7 +93,10 @@ public class AOEMiner extends WurstEffect {
             if (b.getType().isAir() || !b.getType().isSolid()) {
                 continue;
             }
-            player.setSaturation(player.getSaturation() - saturationConsumation);
+            if (b.getType().getHardness() >= center.getType().getHardness()) {
+                continue;
+            }
+            player.setFoodLevel(player.getFoodLevel() - foodConsumation);
             b.breakNaturally();
         }
     }

@@ -55,8 +55,7 @@ public class VeinMiner extends WurstEffect{
         }
 
         e.setCancelled(true);
-        e.getBlock().getWorld().dropItemNaturally(e.getBlock().getLocation(), new ItemStack(e.getBlock().getType()));
-        e.getBlock().setType(Material.AIR);
+        e.getBlock().breakNaturally();
 
         final ItemStack handItem = p.getInventory().getItemInMainHand();
 
@@ -121,8 +120,7 @@ public class VeinMiner extends WurstEffect{
             if (counter >= limit) {
                 return;
             }
-            b.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(b.getType()));
-            b.setType(Material.AIR);
+            b.breakNaturally();
             counter++;
             veinMine(b);
         }
